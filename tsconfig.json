@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
-    "declaration": true,
+    "declaration": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react",
@@ -12,5 +12,5 @@
       "@totalizer/xcomponents/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", ".dumi/theme/*"]
 }
