@@ -22,7 +22,6 @@ const Header = () => {
         p: 2,
         pt: 1,
         pb: 1,
-        mb: 2,
         position: 'sticky',
         zIndex: 10,
         top: 0,
@@ -50,44 +49,6 @@ const Header = () => {
       </Stack>
     </Stack>
   );
-
-  // return (
-  //   <div
-  //     className="dumi-default-header"
-  //     data-static={Boolean(frontmatter.hero) || undefined}
-  //     data-mobile-active={showMenu || undefined}
-  //     onClick={() => setShowMenu(false)}
-  //   >
-  //     <div className="dumi-default-header-content">
-  //       <section className="dumi-default-header-left">
-  //         <Logo />
-  //       </section>
-  //       <section className="dumi-default-header-right">
-  //         <Navbar />
-  //         <div className="dumi-default-header-right-aside">
-  //           <SearchBar />
-  //           <LangSwitch />
-  //           <RtlSwitch />
-  //           {themeConfig.prefersColor.switch && <ColorSwitch />}
-  //           {socialIcons.map((item) => (
-  //             <SocialIcon icon={item.icon} link={item.link} key={item.link} />
-  //           ))}
-  //           <HeaderExtra />
-  //         </div>
-  //       </section>
-  //       <button
-  //         type="button"
-  //         className="dumi-default-header-menu-btn"
-  //         onClick={(ev) => {
-  //           ev.stopPropagation();
-  //           setShowMenu((v) => !v);
-  //         }}
-  //       >
-  //         {showMenu ? <IconClose /> : <IconMenu />}
-  //       </button>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default Header;

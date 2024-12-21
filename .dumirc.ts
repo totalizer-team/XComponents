@@ -2,7 +2,9 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
+  favicons: ['/logo.png'],
   themeConfig: {
+    title: 'XComponents',
     name: 'XComponents',
     logo: '/logo.png',
     socialLinks: {

@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   if (!sidebar) return null;
 
-  console.log(pathname, sidebar);
+  console.log(pathname, sidebar, meta);
 
   return (
     <div className="dumi-default-sidebar">

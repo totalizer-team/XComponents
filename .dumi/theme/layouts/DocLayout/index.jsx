@@ -16,12 +16,13 @@ import Content from 'dumi/theme/slots/Content';
 import ContentFooter from 'dumi/theme/slots/ContentFooter';
 import Footer from 'dumi/theme/slots/Footer';
 import Toc from 'dumi/theme/slots/Toc';
-import React, { useEffect, useState, type FC } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../slots/Header';
 import Sidebar from '../../slots/Sidebar';
+import HomePageLayout from '../HomePageLayout';
 import './index.less';
 
-const DocLayout: FC = () => {
+const DocLayout = () => {
   const intl = useIntl();
   const outlet = useOutlet();
   const sidebar = useSidebarData();
@@ -51,6 +52,13 @@ const DocLayout: FC = () => {
       }, 1);
     }
   }, [loading, hash]);
+
+  if (
+    ['', '/'].some((path) => path === pathname) ||
+    ['/index'].some((path) => pathname.startsWith(path))
+  ) {
+    return <HomePageLayout />;
+  }
 
   return (
     <ThemeProvider
@@ -89,8 +97,6 @@ const DocLayout: FC = () => {
           {hostname && <link rel="canonical" href={hostname + pathname} />}
         </Helmet>
         <Header />
-        {/* <Hero />
-        <Features /> */}
         {showSidebar && (
           <div className="dumi-default-doc-layout-mobile-bar">
             <button
@@ -106,7 +112,12 @@ const DocLayout: FC = () => {
             </button>
           </div>
         )}
-        <main>
+
+        <main
+          style={{
+            padding: pathname === '/' ? 0 : 24,
+          }}
+        >
           {showSidebar && <Sidebar />}
           <Content>
             <article>{outlet}</article>

@@ -27,8 +27,9 @@ export default () => {
   return (
     <Box
       sx={{
-        borderTop: 1,
-        borderColor: 'divider',
+        // borderTop: 1,
+        // borderColor: 'divider',
+        backgroundColor: 'Background',
       }}
     >
       <Grid

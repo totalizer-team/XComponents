@@ -229,8 +229,8 @@ const HorizontalItem = ({
             _selected || _hasSelected
               ? theme.palette.primary.main
               : disabled
-              ? 'inherit'
-              : 'GrayText',
+                ? 'inherit'
+                : 'GrayText',
           transition: 'all 0.2s ease-in-out',
         },
       }}
@@ -256,9 +256,9 @@ const HorizontalItem = ({
 };
 
 const VerticalList = ({ item, isSelected, onClick = () => {} }) => {
-  const hasSelcted = item.children.some(isSelected);
+  const hasSelected = item.children.some(isSelected);
 
-  const [open, setOpen] = useState(hasSelcted || item.open);
+  const [open, setOpen] = useState(hasSelected || item.open);
 
   return (
     <Box>
@@ -324,7 +324,7 @@ const VerticalList = ({ item, isSelected, onClick = () => {} }) => {
 };
 
 const SidebarList = ({ item, isSelected, onClick = () => {} }) => {
-  const hasSelcted = item.children.some(isSelected);
+  const hasSelected = item.children.some(isSelected);
 
   const itemRef = useRef(null);
 
@@ -398,7 +398,7 @@ const SidebarList = ({ item, isSelected, onClick = () => {} }) => {
 };
 
 const HorizontalList = ({ item, isSelected, onClick = () => {} }) => {
-  const hasSelcted = item.children.some(isSelected);
+  const hasSelected = item.children.some(isSelected);
 
   const itemRef = useRef(null);
 
