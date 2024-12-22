@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className="dumi-default-sidebar">
       {sidebar.map((item, i) => (
-        <Box>
+        <Box key={i}>
           {item.title && <Typography>{item.title}</Typography>}
           <XNavigation
             options={item.children.map((el) => ({

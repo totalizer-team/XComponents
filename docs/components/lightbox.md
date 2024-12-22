@@ -1,10 +1,12 @@
 ---
-order: 3
+order: 4
 toc: content
 mobile: false
 ---
 
 # Lightbox
+
+`yet-another-react-lightbox`
 
 Coming soon!
 

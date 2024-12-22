@@ -4,26 +4,25 @@ toc: content
 mobile: false
 ---
 
-
 # Navigation
 
 > A component that facilitates navigation within an application or website. It serves as a structured interface to help users move between different pages, sections, or features. Commonly used in headers, sidebars, or footers to enhance user experience and accessibility.
 
 Component Name: `XNavigation`
 
-Import: 
+Import:
 
-``` js
+```js
 import XNavigation from '@totalizer/xcomponents/XNavigation';
 ```
 
+<code src="./examples/navigation-playground" compact></code>
 
 ## Demo
 
 ### Horizontal
 
 <code src="./examples/navigation-horizontal" ></code>
-
 
 ### Vertical
 
@@ -33,26 +32,24 @@ import XNavigation from '@totalizer/xcomponents/XNavigation';
 
 <code src="./examples/navigation-sidebar"></code>
 
-
 ## Usage
 
-
-``` js
+```js
 export default () => {
   const [path, setPath] = React.useState('/Account');
 
-  return <XNavigation
-    variant="horizontal"
-    options={config}
-    isSelected={(item) => item.path === path}
-    onClick={(item) => {
-      if (item.path) setPath(item.path);
-    }}
-  />;
+  return (
+    <XNavigation
+      variant="horizontal"
+      options={config}
+      isSelected={(item) => item.path === path}
+      onClick={(item) => {
+        if (item.path) setPath(item.path);
+      }}
+    />
+  );
 };
-
 ```
-
 
 ## API
 
