@@ -1,18 +1,15 @@
 import AnalyticsIcon from '@mui/icons-material/Analytics';
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
-import ContentPaste from '@mui/icons-material/ContentPaste';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
 import BookIcon from '@mui/icons-material/Book';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DoNotTouchIcon from '@mui/icons-material/DoNotTouch';
-import Settings from '@mui/icons-material/Settings';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 
 export default [
   {
     icon: <AnalyticsIcon />,
     title: 'About',
     path: '/About',
-    secondary: 'control + A',
   },
   {
     icon: <SupervisedUserCircleIcon />,
@@ -22,13 +19,13 @@ export default [
         icon: <AssignmentIndIcon />,
         title: 'Profile',
         secondary: '⌘P',
-        path: '/Profile'
+        path: '/Profile',
       },
       {
         icon: <CreditCardIcon />,
         title: 'Account',
         secondary: '⌘A',
-        path: '/Account'
+        path: '/Account',
       },
     ],
   },
@@ -48,7 +45,7 @@ export default [
       {
         title: 'List',
         label: '20',
-        path: '/List'
+        path: '/List',
       },
     ],
   },

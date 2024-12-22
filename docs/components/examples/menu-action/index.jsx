@@ -11,7 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DoNotTouchIcon from '@mui/icons-material/DoNotTouch';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 
-import XActionMenu from '@totalizer/xcomponents/XActionMenu';
+import ActionMenu from '@totalizer/xcomponents/ActionMenu';
 
 export default () => {
   const options01 = [
@@ -65,19 +65,19 @@ export default () => {
   ];
   return (
     <Stack direction="row" spacing={2} alignItems="center">
-      <XActionMenu
+      <ActionMenu
         options={options01}
         placement="bottom-start"
         onClick={(item) => {
           console.log(item);
         }}
       >
-        <Button variant="outlined" startIcon={<SettingsIcon />}>
+        <Button size="small" variant="outlined" startIcon={<SettingsIcon />}>
           More
         </Button>
-      </XActionMenu>
+      </ActionMenu>
 
-      <XActionMenu
+      <ActionMenu
         options={options02}
         placement="bottom"
         onClick={(item) => {
@@ -93,7 +93,7 @@ export default () => {
         >
           <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
         </IconButton>
-      </XActionMenu>
+      </ActionMenu>
     </Stack>
   );
 };

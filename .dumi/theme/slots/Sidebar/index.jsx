@@ -1,7 +1,6 @@
-import { Box, Typography } from '@mui/material';
-import XNavigation from '@totalizer/xcomponents/XNavigation';
+import SidebarMenu from '@totalizer/xcomponents/SidebarMenu';
 import { history, useLocation, useRouteMeta, useSidebarData } from 'dumi';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import './index.less';
 
@@ -12,26 +11,41 @@ const Sidebar = () => {
 
   if (!sidebar) return null;
 
-  console.log(pathname, sidebar, meta);
+  const [mainOptions, groupOptions] = useMemo(() => {
+    const options = sidebar.map((item) => {
+      return {
+        title: item.title,
+        secondary: item.children.length,
+        children: item.children.map((el) => ({
+          title: el.title,
+          link: el.link,
+          onClick: () => {
+            history.push(el.link);
+          },
+        })),
+      };
+    });
+
+    if (options[0].title) return [[], options];
+    if (options.length > 1)
+      return [options[0].children, options.filter((el, i) => i !== 0)];
+    return [options[0].children, []];
+  }, [sidebar]);
 
   return (
     <div className="dumi-default-sidebar">
-      {sidebar.map((item, i) => (
-        <Box>
-          {item.title && <Typography>{item.title}</Typography>}
-          <XNavigation
-            options={item.children.map((el) => ({
-              // icon: <ExploreIcon />,
-              title: el.title,
-              link: el.link,
-              onClick: () => {
-                history.push(el.link);
-              },
-            }))}
-            isSelected={(el) => el.link === pathname}
-          />
-        </Box>
-      ))}
+      {!!mainOptions.length && (
+        <SidebarMenu
+          options={mainOptions}
+          isSelected={(el) => el.link === pathname}
+        />
+      )}
+      {!!groupOptions.length && (
+        <SidebarMenu
+          options={groupOptions}
+          isSelected={(el) => el.link === pathname}
+        />
+      )}
     </div>
   );
 };

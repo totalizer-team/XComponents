@@ -32,7 +32,7 @@ const Header = () => {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Stack direction="row" alignItems="center" spacing={3}>
+      <Stack direction="row" alignItems="center" spacing={1}>
         <Logo />
         <Navbar />
       </Stack>

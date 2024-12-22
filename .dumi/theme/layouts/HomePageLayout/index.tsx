@@ -14,8 +14,8 @@ import {
 } from 'dumi';
 import Content from 'dumi/theme/slots/Content';
 import ContentFooter from 'dumi/theme/slots/ContentFooter';
-import Footer from 'dumi/theme/slots/Footer';
 import React, { useEffect, useState, type FC } from 'react';
+import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 
 const HomePageLayout: FC = () => {
@@ -86,8 +86,8 @@ const HomePageLayout: FC = () => {
         <Content>
           <article>{outlet}</article>
           <ContentFooter />
-          <Footer />
         </Content>
+        <Footer />
       </Box>
     </ThemeProvider>
   );

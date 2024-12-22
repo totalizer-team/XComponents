@@ -1,6 +1,9 @@
 // import { ReactComponent as IconSidebar } from '@ant-design/icons-svg/inline-svg/outlined/align-left.svg';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import ViewSidebarRoundedIcon from '@mui/icons-material/ViewSidebarRounded';
+import { Box, Button } from '@mui/material';
+
 import animateScrollTo from 'animated-scroll-to';
 import {
   Helmet,
@@ -14,9 +17,10 @@ import {
 } from 'dumi';
 import Content from 'dumi/theme/slots/Content';
 import ContentFooter from 'dumi/theme/slots/ContentFooter';
-import Footer from 'dumi/theme/slots/Footer';
+// import Footer from 'dumi/theme/slots/Footer';
 import Toc from 'dumi/theme/slots/Toc';
 import React, { useEffect, useState } from 'react';
+import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 import Sidebar from '../../slots/Sidebar';
 import HomePageLayout from '../HomePageLayout';
@@ -55,7 +59,7 @@ const DocLayout = () => {
 
   if (
     ['', '/'].some((path) => path === pathname) ||
-    ['/index'].some((path) => pathname.startsWith(path))
+    ['/index', '/pro', '/pricing'].some((path) => pathname.startsWith(path))
   ) {
     return <HomePageLayout />;
   }
@@ -98,19 +102,18 @@ const DocLayout = () => {
         </Helmet>
         <Header />
         {showSidebar && (
-          <div className="dumi-default-doc-layout-mobile-bar">
-            <button
-              type="button"
-              className="dumi-default-sidebar-btn"
+          <Box className="dumi-default-doc-layout-mobile-bar">
+            <Button
+              variant="text"
               onClick={(ev) => {
                 ev.stopPropagation();
                 updateActivateSidebar((v) => !v);
               }}
+              startIcon={<ViewSidebarRoundedIcon />}
             >
-              {/* <IconSidebar /> */}
               {intl.formatMessage({ id: 'layout.sidebar.btn' })}
-            </button>
-          </div>
+            </Button>
+          </Box>
         )}
 
         <main
@@ -122,7 +125,6 @@ const DocLayout = () => {
           <Content>
             <article>{outlet}</article>
             <ContentFooter />
-            <Footer />
           </Content>
           {fm.toc === 'content' && (
             <div className="dumi-default-doc-layout-toc-wrapper">
@@ -131,6 +133,7 @@ const DocLayout = () => {
             </div>
           )}
         </main>
+        <Footer />
       </div>
     </ThemeProvider>
   );

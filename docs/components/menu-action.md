@@ -1,34 +1,26 @@
 ---
 nav:
-  title: components
+  title: Components
+  order: 1
+group:
+  title: Menu
   order: 0
-order: 1
 toc: content
 mobile: false
 ---
 
-
 # Action Menu
 
-> A component that displays a menu with a list of actionable items or options. It allows users to perform specific actions, such as editing, deleting, or sharing, typically through a dropdown interface. Commonly used in toolbars, context menus, or as part of a button group.
-
-
-Component Name: `XActionMenu`
-
-Import: 
-
-``` js
-import XNavigation from '@totalizer/xcomponents/XActionMenu';
-```
+- Component: `ActionMenu`
 
 ## Demo
 
-<code src="./examples/action-menu" ></code>
+<code src="./examples/menu-action" ></code>
 
 ## Usage
 
-``` js
-<XActionMenu
+```js
+<ActionMenu
   options={options}
   placement="bottom"
   onClick={(item) => {
@@ -38,7 +30,7 @@ import XNavigation from '@totalizer/xcomponents/XActionMenu';
   <IconButton>
     <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
   </IconButton>
-</XActionMenu>
+</ActionMenu>
 ```
 
 ## API
@@ -56,7 +48,6 @@ import XNavigation from '@totalizer/xcomponents/XActionMenu';
 ### MenuItem Props
 
 c: `DEFAULT` | `Title` | `Divider`
-
 
 #### DEFAULT
 
@@ -77,7 +68,6 @@ c: `DEFAULT` | `Title` | `Divider`
 | Name  | Type     | Default | Description |
 | ----- | -------- | ------- | ----------- |
 | title | `string` | `""`    |             |
-
 
 #### Divider
 

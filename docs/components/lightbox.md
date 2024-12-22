@@ -1,10 +1,12 @@
 ---
-order: 3
 toc: content
 mobile: false
 ---
 
 # Lightbox
+
+- Component: `XLightbox`
+- Dependencies: `yet-another-react-lightbox`
 
 Coming soon!
 

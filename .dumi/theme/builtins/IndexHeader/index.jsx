@@ -1,120 +1,136 @@
-import { m } from 'framer-motion';
-
+'use client';
+import Avatar from '@mui/material/Avatar';
+import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import * as React from 'react';
+import { history } from 'umi';
 
-export default function HomeHero({ sx, ...other }) {
+import HomeRectanglesDark from './home-rectangles-dark.svg';
+import HomeRectanglesLight from './home-rectangles-light.svg';
+
+export default function Hero() {
   const theme = useTheme();
-
-  const renderContent = (
-    <Stack
-      spacing={5}
-      alignItems={{ xs: 'center', md: 'flex-start' }}
-      sx={{
-        maxWidth: 480,
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      <Box>
-        <Typography variant="h2">XComponents</Typography>
-      </Box>
-
-      <Box>
-        <Typography sx={{ maxWidth: 480 }}>
-          The XComponents UI is built on top of MUI, a powerful library that
-          provides flexible, customizable, and easy-to-use components.
-        </Typography>
-      </Box>
-
-      <Box>
-        <Button
-          // color="inherit"
-          size="large"
-          variant="contained"
-          target="_blank"
-          rel="noopener"
-          disabled
-        >
-          GET STARTED
-        </Button>
-      </Box>
-
-      <Stack spacing={3}>
-        <Box>
-          <Box
-            component="span"
-            gap={0.75}
-            display="flex"
-            alignItems="center"
-            justifyContent={{ xs: 'center', md: 'flex-start' }}
-          >
-            <Typography>Available for</Typography>
-            <Typography variant="caption">@totalizer/xcomponents</Typography>
-          </Box>
-        </Box>
-      </Stack>
-    </Stack>
-  );
-
-  const renderImage = (
-    <Box
-      // component={MotionViewport}
-      sx={{
-        flex: '1 1 auto',
-        position: 'relative',
-        display: { xs: 'none', md: 'block' },
-      }}
-    >
-      {[...Array(7)].map((_, index) => (
-        <Box
-          key={index}
-          component={m.img}
-          // variants={varFade({ distance: 40 }).inDown}
-          alt="Home hero"
-          src={`home/hero-${index + 1}.webp`}
-          sx={{
-            top: 0,
-            left: 0,
-            m: 'auto',
-            bottom: 0,
-            width: 800,
-            maxWidth: 'unset',
-            zIndex: 9 - index,
-            position: 'absolute',
-          }}
-        />
-      ))}
-    </Box>
-  );
 
   return (
     <Box
-      component="section"
       sx={{
-        py: 10,
         overflow: 'hidden',
         position: 'relative',
-        ...sx,
       }}
-      {...other}
     >
-      <Container
+      <Box
         sx={{
+          alignItems: 'center',
+          bottom: 0,
           display: 'flex',
           justifyContent: 'center',
-          [theme.breakpoints.up('md')]: {
-            columnGap: 10,
-            alignItems: 'center',
-            justifyContent: 'unset',
-          },
+          left: 0,
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          zIndex: 1,
         }}
       >
-        {renderContent}
-        {renderImage}
+        <Box
+          component="img"
+          src={
+            theme.palette.mode === 'dark'
+              ? HomeRectanglesDark
+              : HomeRectanglesLight
+          }
+          sx={{ height: 'auto', width: '1900px' }}
+        />
+      </Box>
+      <Container
+        maxWidth="md"
+        sx={{ position: 'relative', py: '120px', zIndex: 3 }}
+      >
+        <Stack spacing={4}>
+          <Stack spacing={2}>
+            <Typography
+              sx={{
+                fontSize: '3.5rem',
+                fontWeight: 600,
+                lineHeight: 1.2,
+                textAlign: 'center',
+              }}
+            >
+              Develop the future, we’ll make it {''}
+              <Typography
+                color="primary.main"
+                component="span"
+                variant="inherit"
+              >
+                SEAMLESS
+              </Typography>{' '}
+              !
+            </Typography>
+            <Typography
+              color="neutral.300"
+              sx={{ fontWeight: 400, textAlign: 'center' }}
+              variant="h5"
+            >
+              The{' '}
+              <Typography
+                color="primary.main"
+                component="span"
+                variant="inherit"
+              >
+                XComponents
+              </Typography>{' '}
+              is built on top of MUI, an efficient, elegant, and continuously
+              updated front-end component library.
+            </Typography>
+          </Stack>
+          <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                history.push('/guide');
+              }}
+            >
+              Guide
+            </Button>
+            <Button
+              onClick={() => {
+                history.push('/components');
+              }}
+            >
+              Components
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ alignItems: 'center', justifyContent: 'center ' }}
+          >
+            <AvatarGroup>
+              <Avatar alt="User 5" src="/assets/avatar-5.png" />
+              <Avatar alt="User 1" src="/assets/avatar-1.png" />
+              <Avatar alt="User 2" src="/assets/avatar-2.png" />
+            </AvatarGroup>
+            <Typography
+              color="neutral.300"
+              sx={{ whiteSpace: 'nowrap' }}
+              variant="caption"
+            >
+              <Typography
+                color="inherit"
+                component="span"
+                sx={{ fontWeight: 700 }}
+                variant="inherit"
+              >
+                4.7/5
+              </Typography>{' '}
+              based on (100+ reviews)
+            </Typography>
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   );

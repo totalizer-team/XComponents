@@ -1,24 +1,26 @@
 import React from 'react';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import BookIcon from '@mui/icons-material/Book';
+import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded';
 import DnsIcon from '@mui/icons-material/Dns';
 import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 import ExploreIcon from '@mui/icons-material/Explore';
 import InboxIcon from '@mui/icons-material/Inbox';
 import InputIcon from '@mui/icons-material/Input';
+import MilitaryTechRoundedIcon from '@mui/icons-material/MilitaryTechRounded';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import WebStoriesIcon from '@mui/icons-material/WebStories';
 
 import XNavigation from '@totalizer/xcomponents/XNavigation';
 import { history, useLocation, useNavData } from 'dumi';
 
 const ICONS = {
   guide: <ExploreIcon />,
-  components: <WebStoriesIcon />,
+  components: <CategoryRoundedIcon />,
+  pro: <MilitaryTechRoundedIcon />,
   blog: <BookIcon />,
-  price: <WebStoriesIcon />,
-  example: <DnsIcon />,
+  pricing: <AttachMoneyRoundedIcon />,
   examples: <DnsIcon />,
   playground: <SportsEsportsIcon />,
   input: <InputIcon />,
