@@ -8,21 +8,20 @@ mobile: false
 
 # Animate Text
 
-- Component: `XAnimateText`
-- Dependencies: `framer-motion`
+Dependencies: `framer-motion`
 
 ## Demo
 
-<code src="./examples/animate-text" compact></code>
+<code src="./examples/animate/animate-text" compact></code>
 
 ## Usage
 
 ```jsx | pure
 import React from 'react';
-import XAnimateText from '@totalizer/xcomponents/XAnimateText';
+import AnimateText from '@totalizer/xcomponents/AnimateText';
 
 export default () => (
-  <XAnimateText
+  <AnimateText
     animate={{
       name: 'slideInUp',
       distance: 200,
@@ -32,7 +31,7 @@ export default () => (
     }}
   >
     Totalizer
-  </XAnimateText>
+  </AnimateText>
 );
 ```
 

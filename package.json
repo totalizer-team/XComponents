@@ -33,10 +33,6 @@
     "*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
     "*.{js,jsx}": [
       "eslint --fix",
       "prettier --write"
@@ -46,10 +42,17 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "@react-three/fiber": "^8.17.12",
+    "three": "^0.172.0",
+    "typed.js": "^2.1.0",
+    "yet-another-react-lightbox": "^3.21.7"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.17.0",
+    "@totalizer/xmenu": "^0.0.3",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@umijs/lint": "^4.4.2",

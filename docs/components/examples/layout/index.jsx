@@ -1,21 +1,20 @@
 import React from 'react';
 
 import Layout from '@totalizer/xcomponents/Layout';
-import SidebarMenu from '@totalizer/xcomponents/SidebarMenu';
-import config from '../navigation-config';
+import { VerticalMenu } from '@totalizer/xmenu';
+import options from './options';
 
 export default () => {
-  const [path, setPath] = React.useState('/Account');
+  const [title, setTitle] = React.useState('Keys');
   const [open, setOpen] = React.useState(true);
 
   const Sidebar = () => {
     return (
-      <SidebarMenu
-        open={open}
-        options={config}
-        isSelected={(item) => item.path === path}
+      <VerticalMenu
+        options={options}
+        isSelected={(item) => item.title === title}
         onClick={(item) => {
-          if (item.path) setPath(item.path);
+          if (!item.children) setTitle(item.title);
         }}
         sx={{ p: 1 }}
       />
@@ -24,7 +23,7 @@ export default () => {
 
   return (
     <Layout open={open} onOpenChange={setOpen} sidebar={<Sidebar />}>
-      <div>{path}</div>
+      <div>{title}</div>
     </Layout>
   );
 };
