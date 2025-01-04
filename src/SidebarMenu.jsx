@@ -19,22 +19,9 @@ import BaseMenuItem from './components/BaseMenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const SIZE_CONFIG = {
-  medium: {
-    MAIN_FONT_SIZE: 14,
-    MAIN_P: [0.5, 1],
-    CONTENT_PL: 2.75,
-    MAIN_ICON_SIZE: 20,
-    MAIN_ICON_MR: 1,
-    MAIN_SPACING: 0.5,
-    MAIN_BORDER_RADIUS: 1,
-  },
-};
-
 const ParentItem = ({
   item = {},
   open = true,
-  config = {},
   onMouseEnter = () => {},
   onMouseLeave = () => {},
   _selected = false,
@@ -71,22 +58,20 @@ const ParentItem = ({
         selected={_selected}
         disabled={disabled}
         sx={{
-          width: open ? 'auto' : '36px',
-          pt: config.MAIN_P[0],
-          pb: config.MAIN_P[0],
-          pl: config.MAIN_P[1],
-          pr: config.MAIN_P[1],
+          width: open ? 'auto' : '34px',
+          py: 0.75,
+          px: 1,
           minHeight: '0px !important',
-          borderRadius: config.MAIN_BORDER_RADIUS,
+          borderRadius: 1,
         }}
       >
         {icon && (
           <ListItemIcon
             sx={{
               minWidth: '0 !important',
-              mr: open ? config.MAIN_ICON_MR : 0,
+              mr: open ? 1 : 0,
               '.MuiSvgIcon-root': {
-                fontSize: config.MAIN_ICON_SIZE,
+                fontSize: 18,
                 color:
                   _selected || _hasSelected
                     ? theme.palette.primary.main
@@ -105,7 +90,7 @@ const ParentItem = ({
               sx={{
                 mr: 1,
                 '.MuiTypography-root': {
-                  lineHeight: 1.5,
+                  lineHeight: '20px',
                 },
               }}
             >
@@ -113,7 +98,7 @@ const ParentItem = ({
                 variant="body2"
                 noWrap
                 color={_selected || _hasSelected ? 'primary' : 'inherit'}
-                fontSize={config.MAIN_FONT_SIZE}
+                fontSize={14}
               >
                 {title}
               </Typography>
@@ -167,13 +152,7 @@ const ParentItem = ({
   );
 };
 
-const ListContent = ({
-  item,
-  open,
-  isSelected,
-  config,
-  onClick = () => {},
-}) => {
+const ListContent = ({ item, open, isSelected, onClick = () => {} }) => {
   const hasSelected = item.children.some(isSelected);
 
   const [expanded, setExpanded] = useState(
@@ -209,7 +188,6 @@ const ListContent = ({
           open={open}
           _isExpanded={expanded}
           item={item}
-          config={config}
           _parent
           _globalClickEvent={(e) => {
             setExpanded(!expanded);
@@ -219,13 +197,13 @@ const ListContent = ({
           _hasSelected={item.children.some(isSelected)}
         />
         <Stack
-          spacing={config.MAIN_SPACING}
+          spacing={0.5}
           sx={{
             display: expanded ? 'block' : 'none',
             position: 'relative',
             pl: 2,
             pr: 0,
-            pt: config.MAIN_SPACING,
+            pt: 0.5,
             transition: 'all 0.2s ease-in-out',
             ':before': {
               content: '""',
@@ -276,7 +254,6 @@ const ListContent = ({
         _isExpanded={expanded}
         open={open}
         item={item}
-        config={config}
         onMouseEnter={onExpanded}
         onMouseLeave={onClose}
         _ref={itemRef}
@@ -313,10 +290,7 @@ const ListContent = ({
           },
         }}
       >
-        <Stack
-          spacing={config.MAIN_SPACING}
-          sx={{ p: config.MAIN_SPACING * 2 }}
-        >
+        <Stack spacing={0.5} sx={{ p: 0.5 * 2 }}>
           {item.children.map((el, j) => (
             <BaseMenuItem
               key={j}
@@ -334,7 +308,7 @@ const ListContent = ({
   );
 };
 
-const XNavigation = function ({
+const SidebarMenu = function ({
   size = 'medium', // medium
   open = true,
   options = [],
@@ -346,8 +320,6 @@ const XNavigation = function ({
   },
   ...other
 }) {
-  const config = SIZE_CONFIG[size] || SIZE_CONFIG['medium'];
-
   return (
     <Stack direction="column" spacing={0.25} alignItems={'inherit'} {...other}>
       {options.map((item, i) => {
@@ -359,7 +331,6 @@ const XNavigation = function ({
               open={open}
               isSelected={isSelected}
               onClick={onClick}
-              config={config}
             />
           );
         } else {
@@ -372,7 +343,6 @@ const XNavigation = function ({
               _globalClickEvent={(e) => {
                 onClick(item, e);
               }}
-              config={config}
             />
           );
         }
@@ -381,4 +351,4 @@ const XNavigation = function ({
   );
 };
 
-export default XNavigation;
+export default SidebarMenu;

@@ -2,6 +2,7 @@
 group:
   title: Menu
   order: 0
+order: 1
 toc: content
 mobile: false
 ---
@@ -14,11 +15,11 @@ mobile: false
 
 `open=true`
 
-<code src="./examples/menu-sidebar/open-true" ></code>
+<code src="./examples/menu/menu-sidebar-open" ></code>
 
 `open=false`
 
-<code src="./examples/menu-sidebar/open-false" ></code>
+<code src="./examples/menu/menu-sidebar-close" ></code>
 
 ## API
 

@@ -5,6 +5,7 @@ nav:
 group:
   title: Menu
   order: 0
+order: 1
 toc: content
 mobile: false
 ---
@@ -15,7 +16,7 @@ mobile: false
 
 ## Demo
 
-<code src="./examples/menu-action" ></code>
+<code src="./examples/menu/menu-action" ></code>
 
 ## Usage
 

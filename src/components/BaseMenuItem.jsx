@@ -14,9 +14,11 @@ import { useTheme } from '@mui/material/styles';
 import React from 'react';
 
 export default ({
+  _ref = null,
   item = {},
   selected = false,
   cb = () => {},
+  extra = null,
   sx,
   ...other
 }) => {
@@ -36,18 +38,17 @@ export default ({
 
   return (
     <MenuItem
+      ref={_ref}
       onClick={(e) => {
-        onClick(e);
-        cb(e);
+        onClick(item, e);
+        cb(item, e);
         e.stopPropagation();
       }}
       selected={selected}
       disabled={disabled}
       sx={{
-        pt: 0.5,
-        pb: 0.5,
-        pl: 1,
-        pr: 1,
+        py: 0.75,
+        px: 1,
         minHeight: '0px !important',
         borderRadius: 1,
         ...sx,
@@ -65,7 +66,7 @@ export default ({
             minWidth: '0 !important',
             mr: 1,
             '.MuiSvgIcon-root': {
-              fontSize: 20,
+              fontSize: 18,
               color: selected ? theme.palette.primary.main : 'inherit',
               transition: 'all 0.2s ease-in-out',
             },
@@ -78,7 +79,7 @@ export default ({
         sx={{
           mr: 1,
           '.MuiTypography-root': {
-            lineHeight: 1.5,
+            lineHeight: '20px',
           },
         }}
       >
@@ -119,6 +120,8 @@ export default ({
             {secondary}
           </Typography>
         )}
+
+        {extra}
       </Stack>
     </MenuItem>
   );

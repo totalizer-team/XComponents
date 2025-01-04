@@ -33,7 +33,8 @@ const COMPONENTS = {
         }}
         cb={_callback}
         sx={{
-          borderRadius: 0,
+          mx: 0.5,
+          // borderRadius: 0,
         }}
       />
     );
@@ -56,13 +57,15 @@ const COMPONENTS = {
   Divider: () => <Divider />,
 };
 
-export default function XActionMenu({
+export default function ActionMenu({
   children,
-  arrow = true,
+  arrow = false,
   width = 'auto',
   options,
   placement = 'bottom',
   onClick = () => {},
+  sx = {},
+  ...other
 }) {
   let av;
   let ah;
@@ -196,9 +199,11 @@ export default function XActionMenu({
           },
         }}
       >
-        <Box width={width}>
+        <Box sx={{ width, minWidth: 200, ...sx }} {...other}>
           {options.map((item, i) => {
-            const C = COMPONENTS[item.c || 'DEFAULT'];
+            const C = COMPONENTS.hasOwnProperty(item.c)
+              ? COMPONENTS[item.c]
+              : COMPONENTS['DEFAULT'];
             return (
               <C
                 key={i}
