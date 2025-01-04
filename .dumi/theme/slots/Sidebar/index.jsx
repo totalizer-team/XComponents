@@ -1,4 +1,4 @@
-import SidebarMenu from '@totalizer/xcomponents/SidebarMenu';
+import { VerticalMenu } from '@totalizer/xmenu';
 import { history, useLocation, useRouteMeta, useSidebarData } from 'dumi';
 import React, { useMemo } from 'react';
 
@@ -35,13 +35,13 @@ const Sidebar = () => {
   return (
     <div className="dumi-default-sidebar">
       {!!mainOptions.length && (
-        <SidebarMenu
+        <VerticalMenu
           options={mainOptions}
           isSelected={(el) => el.link === pathname}
         />
       )}
       {!!groupOptions.length && (
-        <SidebarMenu
+        <VerticalMenu
           options={groupOptions}
           isSelected={(el) => el.link === pathname}
         />
