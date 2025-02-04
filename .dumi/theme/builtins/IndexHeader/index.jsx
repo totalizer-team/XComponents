@@ -1,4 +1,5 @@
 'use client';
+import ExploreIcon from '@mui/icons-material/Explore';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -7,6 +8,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+
 import * as React from 'react';
 import { history } from 'umi';
 
@@ -75,16 +77,7 @@ export default function Hero() {
               sx={{ fontWeight: 400, textAlign: 'center' }}
               variant="h5"
             >
-              The{' '}
-              <Typography
-                color="primary.main"
-                component="span"
-                variant="inherit"
-              >
-                XComponents
-              </Typography>{' '}
-              is built on top of MUI, an efficient, elegant, and continuously
-              updated front-end component library.
+              50+ free and open-source components
             </Typography>
           </Stack>
           <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
@@ -93,6 +86,7 @@ export default function Hero() {
               onClick={() => {
                 history.push('/guide');
               }}
+              startIcon={<ExploreIcon />}
             >
               Guide
             </Button>
@@ -101,7 +95,7 @@ export default function Hero() {
                 history.push('/components');
               }}
             >
-              Components
+              50+ Components
             </Button>
           </Stack>
           <Stack
@@ -113,20 +107,14 @@ export default function Hero() {
               <Avatar alt="User 5" src="/assets/avatar-5.png" />
               <Avatar alt="User 1" src="/assets/avatar-1.png" />
               <Avatar alt="User 2" src="/assets/avatar-2.png" />
+              <Avatar alt="User 2" src="/assets/avatar-2.png" />
+              <Avatar alt="User 2" src="/assets/avatar-2.png" />
             </AvatarGroup>
             <Typography
               color="neutral.300"
               sx={{ whiteSpace: 'nowrap' }}
               variant="caption"
             >
-              <Typography
-                color="inherit"
-                component="span"
-                sx={{ fontWeight: 700 }}
-                variant="inherit"
-              >
-                4.7/5
-              </Typography>{' '}
               based on (100+ reviews)
             </Typography>
           </Stack>

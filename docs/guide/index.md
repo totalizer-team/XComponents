@@ -6,8 +6,22 @@ toc: content
 mobile: false
 ---
 
-# What is XComponent
+# Introduction
 
 > A formal version will be available soon.
 
-We are currently working hard on this page!
+## What is XComponents?
+
+> We are currently working hard on this page!
+
+## Why is XComponents?
+
+> We are currently working hard on this page!
+
+### Magic UI
+
+https://magicui.design/
+
+### Aceternity UI
+
+https://www.aceternity.com/

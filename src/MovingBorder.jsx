@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -91,14 +91,26 @@ export default function AnimateBorder({ animate = {}, sx = {}, children }) {
   const background = (color) => {
     const degs = [-55, 35, 125, 215, 305];
 
-    const end = `transparent ${angle - (2 + length)}deg, ${color}  ${angle}deg, transparent ${angle + length}deg`;
+    const end = `transparent ${
+      angle - (2 + length)
+    }deg, ${color}  ${angle}deg, transparent ${angle + length}deg`;
 
     return [
-      `conic-gradient(from ${degs[0]}deg at ${distance / aspectRatio}% ${distance}% , ${end})`,
-      `conic-gradient(from ${degs[1]}deg at ${100 - distance / aspectRatio}% ${distance}% , ${end})`,
-      `conic-gradient(from ${degs[2]}deg at ${100 - distance / aspectRatio}% ${100 - distance}% , ${end})`,
-      `conic-gradient(from ${degs[3]}deg at ${distance / aspectRatio}% ${100 - distance}% , ${end})`,
-      `conic-gradient(from ${degs[4]}deg at ${distance / aspectRatio}% ${distance}% , ${end})`,
+      `conic-gradient(from ${degs[0]}deg at ${
+        distance / aspectRatio
+      }% ${distance}% , ${end})`,
+      `conic-gradient(from ${degs[1]}deg at ${
+        100 - distance / aspectRatio
+      }% ${distance}% , ${end})`,
+      `conic-gradient(from ${degs[2]}deg at ${100 - distance / aspectRatio}% ${
+        100 - distance
+      }% , ${end})`,
+      `conic-gradient(from ${degs[3]}deg at ${distance / aspectRatio}% ${
+        100 - distance
+      }% , ${end})`,
+      `conic-gradient(from ${degs[4]}deg at ${
+        distance / aspectRatio
+      }% ${distance}% , ${end})`,
     ];
   };
 

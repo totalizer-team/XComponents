@@ -4,7 +4,6 @@ import AppsIcon from '@mui/icons-material/Apps';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import BookIcon from '@mui/icons-material/Book';
-import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DnsIcon from '@mui/icons-material/Dns';
 import DynamicFormIcon from '@mui/icons-material/DynamicForm';
@@ -14,6 +13,7 @@ import InputIcon from '@mui/icons-material/Input';
 import MilitaryTechRoundedIcon from '@mui/icons-material/MilitaryTechRounded';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import StyleIcon from '@mui/icons-material/Style';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 import { HorizontalMenu } from '@totalizer/xmenu';
 import { history, useLocation, useNavData } from 'dumi';
 
@@ -21,7 +21,7 @@ const ICONS = {
   card: <StyleIcon />,
   section: <DashboardIcon />,
   guide: <ExploreIcon />,
-  components: <CategoryRoundedIcon />,
+  components: <WidgetsIcon />,
   pro: <MilitaryTechRoundedIcon />,
   blog: <BookIcon />,
   pricing: <AttachMoneyRoundedIcon />,

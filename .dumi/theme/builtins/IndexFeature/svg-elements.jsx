@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { useId } from 'react';
 
 import Box from '@mui/material/Box';
+import { grey } from '@mui/material/colors';
+import { useTheme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
@@ -20,11 +22,19 @@ const transition = { duration: 0.64, ease: [0.43, 0.13, 0.23, 0.96] };
 // ----------------------------------------------------------------------
 
 export function FloatLine({ sx, vertical, ...other }) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+  const currentColor = isDark ? grey[500] : grey[700];
   return (
     <Box
       component={motion.svg}
       sx={{
         ...baseStyles,
+        '& line': {
+          strokeDasharray: 3,
+          stroke: currentColor,
+        },
+        '& path': { fill: currentColor, stroke: currentColor },
         zIndex: 1,
         width: '100%',
         height: '1px',
